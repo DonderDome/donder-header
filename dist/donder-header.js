@@ -197,7 +197,7 @@ const G=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,
         width: 100%;
         padding: 20px 20px 0px 20px;
         box-sizing: border-box;
-        /* background-color: var(--ha-card-background); */
+        background-color: transparent;
         color: var(--text-primary-color);
         /* border-radius: var(--ha-card-border-radius) */
       }
