@@ -148,16 +148,7 @@ export class BoilerplateCard extends LitElement {
     const env = this.hass.states['donder_env.global'].attributes
 
     return html`
-      <ha-card
-        .header=${this.config.name}
-        @action=${this._handleAction}
-        .actionHandler=${actionHandler({
-          hasHold: hasAction(this.config.hold_action),
-          hasDoubleClick: hasAction(this.config.double_tap_action),
-        })}
-        tabindex="0"
-        .label=${`Boilerplate: ${this.config || 'No Entity Defined'}`}
-      >
+      <ha-card>
         <div class='donder-widget'>
           <div class="donder-name">D O N D E R <span>A I</span></div>
           <div class="donder-address">
