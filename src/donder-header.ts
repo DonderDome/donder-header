@@ -25,23 +25,23 @@ import { actionHandler } from './action-handler-directive';
 
 /* eslint no-console: 0 */
 console.info(
-  `%c  JARVIS-WIDGET-TEMPLATE \n%c  version: ${CARD_VERSION}  `,
+  `%c  donder-header \n%c  version: ${CARD_VERSION}  `,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray',
 );
 
 (window as any).customCards = (window as any).customCards || [];
 (window as any).customCards.push({
-  type: 'jarvis-widget-template',
+  type: 'donder-header',
   name: 'Boilerplate Card',
   description: 'A template custom card for you to create something awesome',
 });
 
 export class BoilerplateCard extends LitElement {
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
-    // REPLACE "jarvis-widget-template" with widget name, everywhere in the project
+    // REPLACE "donder-header" with widget name, everywhere in the project
     // REPLACE the file name with the actual widget name
-    return document.createElement('jarvis-widget-template-editor');
+    return document.createElement('donder-header-editor');
   }
 
   public static getStubConfig(): Record<string, unknown> {
@@ -102,35 +102,41 @@ export class BoilerplateCard extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      /* REPLACE "jarvis-widget-template" with actual widget name */
-      .type-custom-jarvis-widget-template {
+      /* REPLACE "donder-header" with actual widget name */
+      .type-custom-donder-header {
         height: 100%;
         width: 100%;
       }
-      .jarvis-widget {
+      .donder-widget {
         height: 100%;
         width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 20px;
+        padding: 20px 20px 0px 20px;
         box-sizing: border-box;
-        border: 1px solid #fff;
+        /* background-color: var(--ha-card-background); */
+        color: var(--text-primary-color);
+        /* border-radius: var(--ha-card-border-radius) */
+      }
+      .donder-name {
+        font-size: 28px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .donder-name span {
+        font-weight: 500;
+        color: #49aae3;
+        margin-left: 5px;
+      }
+      .donder-address {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.7em;
+        margin-left: 12px;
+        line-height: 1.1em;
       }
     `;
   }
 
   protected render(): TemplateResult | void {
-    /*
-      ## INTERFACE
-      - this.hass: A lot of information about everything in HA, such as states, theme, etc. The source of the tree
-        - states: States of each of the components available
-      - this.config: Lovelace settings for this instance
-
-      Example: this.hass.states[this.config.entities[0]] shows the state of the first component
-     */
-
-    // TODO Check for stateObj or other necessary things and render a warning if missing
     if (this.config.show_warning) {
       return this._showWarning('warning message');
     }
@@ -150,10 +156,16 @@ export class BoilerplateCard extends LitElement {
         tabindex="0"
         .label=${`Boilerplate: ${this.config || 'No Entity Defined'}`}
       >
-        <div class='jarvis-widget'>It's the template!</div>
+        <div class='donder-widget'>
+          <div class="donder-name">D O N D E R <span>A I</span></div>
+          <div class="donder-address">
+            <div class="donder-address-text">${this.config?.env?.address}</div>
+            <div class="donder-status">v${this.config?.env?.version}</div>
+          </div>
+        </div>
       </ha-card>
     `;
   }
 }
 
-customElements.define("jarvis-widget-template", BoilerplateCard);
+customElements.define("donder-header", BoilerplateCard);
