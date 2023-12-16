@@ -218,7 +218,7 @@ const X=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,
         margin-left: 12px;
         line-height: 1.1em;
       }
-    `}render(){var t,e,i,o;return this.config.show_warning?this._showWarning("warning message"):this.config.show_error?this._showError("error message"):O`
+    `}render(){if(this.config.show_warning)return this._showWarning("warning message");if(this.config.show_error)return this._showError("error message");const t=this.hass.states["donder_env.global"].attributes;return O`
       <ha-card
         .header=${this.config.name}
         @action=${this._handleAction}
@@ -229,8 +229,8 @@ const X=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,
         <div class='donder-widget'>
           <div class="donder-name">D O N D E R <span>A I</span></div>
           <div class="donder-address">
-            <div class="donder-address-text">${null===(e=null===(t=this.config)||void 0===t?void 0:t.env)||void 0===e?void 0:e.address}</div>
-            <div class="donder-status">v${null===(o=null===(i=this.config)||void 0===i?void 0:i.env)||void 0===o?void 0:o.version}</div>
+            <div class="donder-address-text">${null==t?void 0:t.address}</div>
+            <div class="donder-status">v${null==t?void 0:t.version}</div>
           </div>
         </div>
       </ha-card>

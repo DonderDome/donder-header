@@ -145,6 +145,8 @@ export class BoilerplateCard extends LitElement {
       return this._showError('error message');
     }
 
+    const env = this.hass.states['donder_env.global'].attributes
+
     return html`
       <ha-card
         .header=${this.config.name}
@@ -159,8 +161,8 @@ export class BoilerplateCard extends LitElement {
         <div class='donder-widget'>
           <div class="donder-name">D O N D E R <span>A I</span></div>
           <div class="donder-address">
-            <div class="donder-address-text">${this.config?.env?.address}</div>
-            <div class="donder-status">v${this.config?.env?.version}</div>
+            <div class="donder-address-text">${env?.address}</div>
+            <div class="donder-status">v${env?.version}</div>
           </div>
         </div>
       </ha-card>
