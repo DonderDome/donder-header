@@ -130,8 +130,8 @@ export class BoilerplateCard extends LitElement {
         text-transform: uppercase;
         font-weight: 600;
         font-size: 0.7em;
-        margin-left: 12px;
         line-height: 1.1em;
+        margin-top: 8px;
       }
     `;
   }

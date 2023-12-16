@@ -215,8 +215,8 @@ const G=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,
         text-transform: uppercase;
         font-weight: 600;
         font-size: 0.7em;
-        margin-left: 12px;
         line-height: 1.1em;
+        margin-top: 8px;
       }
     `}render(){if(this.config.show_warning)return this._showWarning("warning message");if(this.config.show_error)return this._showError("error message");const t=this.hass.states["donder_env.global"].attributes;return O`
       <ha-card>
