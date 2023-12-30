@@ -133,6 +133,13 @@ export class BoilerplateCard extends LitElement {
         line-height: 1.1em;
         margin-top: 8px;
       }
+
+      // media query
+      @media (max-width: 500px) {
+        .donder-widget {
+          padding-left: 0px;
+        }
+      }
     `;
   }
 
