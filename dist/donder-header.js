@@ -220,7 +220,7 @@ const G=(t,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,
       }
 
       // media query
-      @media (max-width: 500px) {
+      @media (max-width: 900px) {
         .donder-widget {
           padding-left: 0px;
         }

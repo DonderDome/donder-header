@@ -135,7 +135,7 @@ export class BoilerplateCard extends LitElement {
       }
 
       // media query
-      @media (max-width: 500px) {
+      @media (max-width: 900px) {
         .donder-widget {
           padding-left: 0px;
         }
