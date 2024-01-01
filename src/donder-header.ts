@@ -136,6 +136,10 @@ export class BoilerplateCard extends LitElement {
       @media (max-width: 600px) {
         .donder-widget {
           padding-left: 0px;
+          font-size: 0.8em;
+        }
+        .donder-name {
+          font-size: 24px;
         }
       }
     `;
